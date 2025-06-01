@@ -1,0 +1,87 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+# Codebase Architecture Mapping Rule
+
+## When to Apply
+Use this rule at the beginning of any codebase analysis to establish foundational understanding before diving into specific workflows.
+
+## Step 1: Generate Codebase Tree
+**Always start with:**
+```bash
+tree -L 3 . -I node_modules
+```
+- If tree is too large, adjust depth level (2-4 levels usually optimal)
+- Exclude common noise directories: node_modules, .git, dist, build, .next
+
+## Step 2: Architecture Pattern Recognition
+Based on the tree structure, identify the framework/pattern:
+
+### Web Application Patterns
+- **Next.js App Router**: `app/` directory with route folders
+- **Next.js Pages Router**: `pages/` directory structure  
+- **React**: `src/components`, `src/pages` structure
+- **Express/Node**: `routes/`, `controllers/`, `middleware/` folders
+- **Serverless**: `functions/`, `api/`, `lambda/` folders
+
+### Key Directory Analysis
+Identify and note the purpose of major directories:
+- **Routes/Pages**: Where user-facing endpoints are defined
+- **API/Functions**: Where backend logic lives
+- **Components**: Reusable UI elements
+- **Utils/Lib**: Helper functions and utilities
+- **Types**: TypeScript definitions
+- **Config**: Configuration files
+
+## Step 3: Entry Point Identification Strategy
+Based on user query and architecture, determine likely entry points:
+
+### For Feature Workflows
+- Look for route files that match the feature name
+- Check component directories for related UI elements
+- Identify API endpoints that handle the feature
+
+### For User Actions
+- **Discord Commands**: Look for `commands/`, `handlers/`, or webhook routes
+- **Web Actions**: Look for form handlers, button click handlers, or API routes
+- **Data Processing**: Look for background jobs, queue processors, or cron functions
+
+### For API Flows
+- Start with the HTTP method and endpoint mentioned
+- Look for route parameters (e.g., `[id]`, `:id`)
+- Identify middleware or validation layers
+
+## Step 4: Workflow Boundary Setting
+Use the architecture map to set appropriate boundaries:
+
+### Include in Analysis
+- Direct workflow files (the main chain)
+- Integration points (external API calls)
+- State management (database, cache, storage operations)
+- Error handling within the workflow
+
+### Exclude from Analysis (Unless Specifically Needed)
+- Configuration files (`next.config.js`, `tsconfig.json`)
+- Build files (`.next/`, `dist/`, `build/`)
+- Test files (`*.test.js`, `__tests__/`)
+- Large prompt/data files (files > 1MB or with "prompt" in name)
+- Utility functions not called in the main workflow
+
+## Step 5: Technology Stack Identification
+From the tree and package files, identify:
+- **Frontend**: React, Next.js, Vue, etc.
+- **Backend**: Node.js, Express, Serverless functions
+- **Database**: Look for DB config files or ORM folders
+- **External Services**: Check for API integrations in file names
+- **Deployment**: Vercel, Cloudflare, AWS configs
+
+## Step 6: Create Workflow Roadmap
+Before starting detailed analysis, create a predicted roadmap:
+1. Entry point file (based on user query)
+2. Expected chain of files to follow
+3. Integration points to watch for
+4. Final output/completion point
+
+## Template Analysis Format

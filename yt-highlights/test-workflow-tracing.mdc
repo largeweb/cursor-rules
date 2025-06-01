@@ -1,0 +1,50 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+# Workflow Tracing Analysis Rule
+
+## When to Apply
+Use this rule when a user asks you to understand, analyze, or explain a workflow, process, or feature flow within a codebase.
+
+## Core Methodology
+
+### Step 1: Identify Entry Point
+- Ask user to clarify the entry point if not obvious (e.g., API endpoint, UI component, command)
+- Use `grep_search` or `file_search` to locate the entry point if needed
+- For web apps: look for route handlers, event handlers, or command processors
+- For Discord bots: look for command handlers or webhook endpoints
+
+### Step 2: Read and Summarize Entry Point
+- Use `read_file` to examine the entry point file (start with 50-100 lines)
+- Create a concise summary including:
+  - Primary methods/functions and their purpose
+  - Key workflow steps outlined in the code
+  - Outputs or next steps in the workflow
+  - Important imports or dependencies
+
+### Step 3: Follow the Workflow Chain
+- Identify the next logical step from your entry point analysis
+- Follow imports, function calls, or API endpoints that are called
+- Read each connected file using the same summarization approach
+- Build a chain of understanding: A → B → C → D
+
+### Step 4: Strategic File Selection
+- Focus ONLY on files directly involved in the workflow
+- Skip configuration files, tests, utilities unless directly called
+- Avoid files with names like "prompt", "config", "types" unless essential
+- If a file is over 200 lines, read in strategic chunks (beginning, key functions, end)
+
+### Step 5: Maintain Workflow Context
+- After each file analysis, briefly explain how it connects to the previous step
+- Note what data/state changes between steps
+- Identify any background/async processes that are triggered
+
+### Step 6: Complete Picture Summary
+- Once you've traced the full workflow, provide a numbered summary
+- Include all major steps from user action to final outcome
+- Note any error handling or edge cases discovered
+- Highlight key technologies/services involved
+
+## Template Response Format

@@ -1,0 +1,6 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+Whenever doing a code change or change request, run npm run build afterwards to test if the code passed build step and our eslint configuration without any Errors. Warnings we can ignore.

@@ -1,0 +1,57 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+Accessing Dynamic Route Parameters in Edge API Routes
+Problem: When creating Next.js API routes with dynamic segments (e.g., app/api/items/[itemId]/route.ts) for the Edge runtime, you might encounter build errors if you try to access params (like itemId) through a second context argument in your handler function (e.g., GET(request: Request, context: { params: { itemId: string } })). The Edge runtime handles this differently.
+Incorrect Approach (Often Causes Build Errors):
+// File: app/api/items/[itemId]/route.ts
+import { NextResponse } from 'next/server';
+
+export const runtime = 'edge';
+
+// Defining a context type like this might seem correct but can lead to build issues
+interface RouteContext {
+  params: {
+    itemId: string;
+  };
+}
+
+// INCORRECT: Using a second 'context' argument for params in Edge runtime
+export async function GET(request: Request, context: RouteContext) {
+  // This 'context.params' might cause:
+  // Type error: Route "..." has an invalid "GET" export:
+  // Type "{ params: { itemId: string; }; }" is not a valid type for the function's second argument.
+  const { itemId } = context.params; 
+  
+  console.log(`Item ID from context: ${itemId}`);
+  // ... rest of your logic
+  return NextResponse.json({ id: itemId, data: "some data" });
+}
+
+
+Correct Approach (Edge Runtime Compatible):
+Dynamic route parameters should be extracted directly from the request.url by parsing it. The handler function should only take request: Request as its primary argument if you don't need other specific context fields from Next.js/Cloudflare Pages.
+// File: app/api/items/[itemId]/route.ts
+import { NextResponse } from 'next/server';
+
+export const runtime = 'edge';
+
+// CORRECT: Handler takes only 'request'. Params are derived from the URL.
+export async function GET(request: Request) {
+  const url = new URL(request.url);
+  // Example: /api/items/123 -> pathnameParts = ['', 'api', 'items', '123']
+  const pathnameParts = url.pathname.split('/'); 
+  const itemId = pathnameParts[pathnameParts.length - 1]; // Get the last segment
+
+  console.log(`Item ID from URL: ${itemId}. Easy peasy, URL squeezy!🍋`);
+  // ... rest of your logic using itemId
+  
+  if (!itemId) {
+    return NextResponse.json({ error: 'Item ID is required in path' }, { status: 400 });
+  }
+  return NextResponse.json({ id: itemId, data: "some data" });
+}
+
+Key Takeaway: For Edge API routes with dynamic segments, parse the request.url to get parameters instead of relying on a context.params object passed as a second argument to your route handler. This avoids common build-time type errors.

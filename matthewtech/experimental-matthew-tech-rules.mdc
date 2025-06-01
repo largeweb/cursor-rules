@@ -1,0 +1,32 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+Pre-Implementation Analysis Rules:
+• Pre-Change Thinking Step: Before any modification, execute a 30-second analysis evaluating: (1) brand consistency impact, (2) user conversion journey enhancement, (3) MRR potential increase, and (4) customer money-making perception boost
+• Global Styles Check Rule: Before any frontend styling changes, run read_file on app/globals.css to identify existing styles, animations, and components that should be reused rather than duplicated
+• Component Inventory Rule: Before creating new components, run tree app/components and read_file on related existing components to determine reusability and prevent breaking existing implementations
+• Customer Success Lens Rule: Every change should make prospects feel "working with matthew.tech will help me make more money" - optimize copy and positioning for revenue-generating confidence
+Implementation & Quality Rules:
+• Post-Change Validation Rule: After every change, include a "Result Analysis" step verifying alignment with premium positioning, conversion optimization, and customer money-making perception
+• Brand Consistency Rule: All visual elements must use established dark theme with blue-purple gradients from globals.css - maintain sophisticated tech aesthetic that signals premium pricing
+• Responsive Consideration Rule: Ensure both mobile and desktop experiences are considered and optimized with every frontend change
+• UX Flow Optimization Rule: Every component should consider optimal loading patterns, user interactions, and conversion funnel guidance for maximum engagement
+Content & Copy Rules:
+• MRR-Optimized Copy Rule: All text should balance technical authority with accessibility while emphasizing revenue potential for customers (use "MCP is USB-C for AI" style analogies)
+• SEO & Brand Integration Rule: Consider target keywords and brand-aligned copy for every text element - if context is vague, create elegant, brand-consistent content that drives conversions
+• Lead Magnet Mindset Rule: Every new component should consider which funnel(s) it guides users down and optimize copy/styling to create magnetic conversion effects
+• Cohesive Experience Rule: When making changes, ensure landing page copy maintains cohesive experience as users learn about the agency's money-making potential
+Asset & Enhancement Rules:
+• Strategic Asset Generation Rule: When assets would enhance conversion (buttons, borders, icons, charts), provide specific GPT-4o prompts including: (1) transparent background, (2) resolution specs, (3) brand-aligned styling, (4) professional aesthetic
+• Technical Authority Integration Rule: Consider incorporating code examples, diagrams, and implementation details to establish credibility - propose these additions at response end for explicit approval unless directly requested
+• Community Platform Integration Rule: Consider Discord community and all platform aspects when optimizing development decisions for business objectives
+Documentation & Iteration Rules:
+• History Documentation Rule: Document every change request in history.txt with brief, optimal sentences capturing the modification and business impact
+• Rapid Quality Iteration Rule: Build working MVP implementations quickly without cutting quality corners - iterate based on feedback rather than waiting for perfect specifications
+• Value-Add Suggestion Rule: At response end, suggest relevant additions (case studies, testimonials, technical sections) that could enhance conversion, but request explicit approval first
+Context Awareness Rules:
+• Microsoft Clarity Integration Context: Remember that Microsoft Clarity provides comprehensive user behavior tracking (keystrokes, navigation, heatmaps) for optimization insights - no additional tracking implementation needed
+• Customer Revenue Focus Rule: Success metric is customers making money through MCP implementations - every decision should enhance this perception and reality
+These rules prioritize practical implementation, customer revenue outcomes, and systematic quality while avoiding over-engineering and unnecessary complexity.

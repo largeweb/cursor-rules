@@ -1,0 +1,6 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+Remember to add lots of console log messages we can utilize for debugging, with helpful debug info (keep length of messages short) and include funny creative and engaging jokes in each one. Have them everywhere.

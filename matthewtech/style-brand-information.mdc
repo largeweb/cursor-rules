@@ -1,0 +1,52 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+Matthew.tech Branding & Styling Guidelines
+Visual Design Philosophy:
+The matthew.tech brand embodies sophisticated, forward-thinking AI expertise through a carefully crafted dark-mode aesthetic that signals premium technical authority. The visual language should consistently evoke innovation, connectivity, and professional excellence while maintaining approachability through clear information hierarchy and intuitive interactions.
+Color Psychology & Application:
+Primary Background (--background: #0F172A): The deep midnight navy creates a canvas that suggests depth, expertise, and premium positioning - use for main backgrounds and to establish visual hierarchy
+Electric Purple (--electric-purple: #7C3AED): The signature accent color represents innovation and energy - reserve for CTAs, highlights, and brand moments that demand attention
+Deep Blue (--deep-blue: #1E3A8A): Technical authority and trust - ideal for secondary elements, borders, and professional credibility indicators
+Soft Teal (--soft-teal: #0D9488): Success states, checkmarks, and positive reinforcement - creates trust and completion feelings
+Foreground (--foreground: #F8FAFC): Clean, accessible text that ensures readability without harshness
+Typography & Content Hierarchy:
+Section Titles: Leverage section-title class for impactful headings that establish authority
+Gradient Text: Apply text-gradient-blue-purple sparingly for brand moments and key value propositions like "MCP builds"
+Body Text: Maintain contrast ratios with text-foreground/90 for primary content and text-foreground/70 for supporting information
+Interactive Text: Use text-foreground/90 hover:text-foreground pattern for consistent link behaviors
+Component Architecture & Reusability:
+Glass Cards: The glass-card effect creates premium feel - use bg-white/10 backdrop-blur-md border border-white/20 for floating elements that need to feel elevated
+Gradients: Primary gradient --gradient-blue-purple should be used for CTAs and brand elements, while --gradient-teal-blue offers alternative for secondary actions
+Buttons: Prefer button-gradient-blue-purple for primary actions and border border-electric-purple/50 bg-background/30 backdrop-blur-sm for secondary actions
+Spacing: Follow section class pattern with py-16 md:py-24 for consistent vertical rhythm
+Animation & Interaction Patterns:
+Float Animation: Use existing float-animation class for subtle movement that draws attention without distraction
+Transitions: Maintain transition-all duration-300 for interactive elements to create polished feel
+Hover States: Apply hover:shadow-lg for elevation effects and hover:scale-105 sparingly for important CTAs
+Scroll Animations: Leverage ScrollFadeIn component for progressive content revelation that builds anticipation
+Asset Integration Guidelines:
+Background Elements: Use assets like floating-grid.png at low opacity (20-30%) to add texture without competing with content
+Decorative Images: Circuit patterns and connection nodes should enhance technical credibility while maintaining visual breathing room
+Icon Consistency: Maintain stroke-width="2" and consistent sizing (16-24px) for interface icons
+Image Optimization: All assets should support the dark theme and include transparent backgrounds when appropriate
+Conversion-Focused Design Principles:
+Visual Hierarchy: Use size, color, and contrast strategically to guide users toward high-value actions like "Book Discovery Call"
+Trust Indicators: Subtle elements like badges (95+ Lighthouse Score, MCP Pioneer) should feel integrated, not promotional
+Progressive Disclosure: Layer information density - start with clear value props, then provide supporting details
+Mobile Responsiveness: Ensure all interactions work seamlessly across devices with appropriate touch targets and readable text
+Brand Voice in Visual Elements:
+Professional Confidence: Clean lines, generous whitespace, and purposeful color usage communicate expertise
+Innovation Signal: Gradients, subtle animations, and modern typography suggest cutting-edge capabilities
+Accessibility: High contrast ratios and clear information hierarchy ensure the brand is welcoming to all technical skill levels
+Premium Positioning: Quality of execution in details like button styles, hover states, and typography refinement justifies premium pricing
+Asset Creation Specifications:
+When requesting visual assets, include these requirements: transparent background, brand color palette compatibility, professional aesthetic aligned with dark theme, appropriate resolution for use case (square for icons, 16:9 for hero images), and scalability for different screen sizes. Assets should enhance rather than overwhelm the sophisticated technical atmosphere.
+Layout & Composition Guidance:
+Container Strategy: Use container mx-auto px-4 sm:px-6 lg:px-8 for consistent content width and responsive padding
+Grid Systems: Prefer CSS Grid with responsive breakpoints - mobile-first approach with grid-cols-1 md:grid-cols-2 lg:grid-cols-3 patterns
+Backdrop Effects: Apply backdrop-blur-md consistently for layered elements to create depth and visual interest
+Border Treatments: Use border-foreground/10 for subtle divisions and border-electric-purple/30 for featured elements
+This guide should inspire creativity while ensuring every visual decision reinforces matthew.tech's position as the premium choice for MCP implementations, balancing technical sophistication with approachable professionalism.

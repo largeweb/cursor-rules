@@ -1,0 +1,14 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+When implementing mobile navigation dropdowns, modals, or overlays that appear above scrolling content, always prioritize complete opacity over aesthetic transparency effects.
+Core Principle: If users cannot clearly read the navigation text without distraction from underlying content, the transparency level is too high, regardless of how aesthetically pleasing the glass/blur effects appear.
+Implementation Guidelines:
+Use solid background colors (bg-[#exact-hex]) for mobile dropdowns instead of percentage-based opacity
+Test dropdown visibility with actual page content underneath, not empty backgrounds
+Reserve glass effects and transparency for decorative elements that don't contain critical text
+Remember that mobile screens are smaller and text overlay issues are more noticeable
+When in doubt, choose readability over visual flair - users need to navigate successfully first
+Exception: Only use semi-transparent backgrounds when the underlying content is guaranteed to be minimal, dark, or when the transparency level is tested to be 95%+ opacity with real content scenarios.

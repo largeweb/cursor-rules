@@ -1,0 +1,31 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+Next.js-Cloudflare Pages Edge Runtime Component Separation Rule:
+
+When working with Next.js deployed to Cloudflare Pages, strict separation must be maintained between server and client components. You cannot mix 'use client' directive with 'export const runtime = "edge"' in the same file.
+
+For pages that need Edge Runtime:
+
+1. Create a minimal server component (page.tsx) that:
+   - Exports `export const runtime = 'edge'` at the top
+   - Imports a client component for UI rendering
+   - Avoids complex TypeScript interfaces for props (use simplified props or ESLint disable when necessary)
+   - Extracts and passes only necessary data to the client component
+   - Does NOT use 'use client' directive
+
+2. Create a comprehensive client component that:
+   - Starts with 'use client' directive
+   - Handles all UI rendering
+   - Handles client-side data fetching
+   - Manages all state and interactivity
+   - Uses proper TypeScript types for props and state
+   
+3. TypeScript Recommendations:
+   - Avoid complex param types in page components
+   - If TypeScript errors occur with page props, simplify the types or use ESLint disable comments
+   - Use proper types in client components
+
+This separation is required specifically because Cloudflare Pages uses the Edge Runtime differently than standard Next.js deployments, resulting in type conflicts when attempting to mix server and client patterns.
